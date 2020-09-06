@@ -3,22 +3,54 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LayoutModule } from './layout/layout.module';
-import { LoginComponent } from './views/login/login.component';
-import { HomeComponent } from './views/home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateCacheModule, TranslateCacheSettings, TranslateCacheService } from 'ngx-translate-cache';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    HomeComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule
+    HttpClientModule,
+    NgbModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    }),
+    TranslateCacheModule.forRoot({
+      cacheService: {
+        provide: TranslateCacheService,
+        useFactory: translateCacheFactory,
+        deps: [TranslateService, TranslateCacheSettings]
+      },
+      cacheMechanism: 'Cookie'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// AOT compilation support
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
+export function translateCacheFactory(
+  translateService: TranslateService,
+  translateCacheSettings: TranslateCacheSettings
+) {
+  return new TranslateCacheService(translateService, translateCacheSettings);
+}
