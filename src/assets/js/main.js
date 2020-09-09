@@ -9,6 +9,15 @@
 $(document).ready(function () {
     "use strict";
 
+    // Preloader
+    $(window).on('load', function () {
+        if ($('#preloader').length) {
+            $('#preloader').delay(100).fadeOut('slow', function () {
+                $(this).remove();
+            });
+        }
+    });
+
     /*----MAIN SLIDER-----*/
     (function ($) {
         var MainSilderCarousel = $('.home-slider');
@@ -120,7 +129,7 @@ $(document).ready(function () {
             jQuery('.footer-content').show();
         }
     })(jQuery);
-		
+
 });
 
 /*----WOW ANIMATION-----*/
@@ -143,40 +152,40 @@ $(window).on("scroll", function () {
         nav = $('.navbar-nav'),
         nav_height = nav.outerHeight() + 25;
     $(window).scrollTop() >= 20 ? $("nav").addClass("sticky-header") : $(".sticky").removeClass("sticky-header");
-   
-   /*----ON SCROLL CHANGE ACTIVE MENU-----*/
+
+    /*----ON SCROLL CHANGE ACTIVE MENU-----*/
     var cur_pos = $(this).scrollTop();
-	var contentwidth = jQuery(window).width();
-        if ((contentwidth) > '991') {
-    sections.each(function () {
-        var top = $(this).offset().top - nav_height,
-            bottom = top + $(this).outerHeight();
-        if (cur_pos >= top && cur_pos <= bottom) {
-            nav.find('li').removeClass('active');
-            $(this).addClass('active');
-            nav.find('a[href="#' + $(this).attr('id') + '"]').parent().addClass('active');
-        }
-    });
-		}
+    var contentwidth = jQuery(window).width();
+    if ((contentwidth) > '991') {
+        sections.each(function () {
+            var top = $(this).offset().top - nav_height,
+                bottom = top + $(this).outerHeight();
+            if (cur_pos >= top && cur_pos <= bottom) {
+                nav.find('li').removeClass('active');
+                $(this).addClass('active');
+                nav.find('a[name="#' + $(this).attr('id') + '"]').parent().addClass('active');
+            }
+        });
+    }
 }),
- $(".nav-item a").on("click", function (o) {
-    var t = $(this);
-    $('.nav-item').removeClass('active');
-    $(t).parent().addClass('active');
-    $("html, body").stop().animate({
-        scrollTop: $(t.attr("href")).offset().top - 50
-    }, 1500, "easeInOutExpo"), o.preventDefault()
-}), 
-$(document).on("click", ".navbar-collapse.show", function (o) {
-    $(o.target).is("a") && $(this).collapse("hide")
-}),
- $(window).on("scroll", function () {
-    $(this).scrollTop() > 100 ? $(".back_top").fadeIn() : $(".back_top").fadeOut()
-}),
- $(".back_top").on("click", function () {
-    return $("html, body").animate({
-        scrollTop: 0
-    }, 1e3), !1
+    $(".nav-item a").on("click", function (o) {
+        var t = $(this);
+        $('.nav-item').removeClass('active');
+        $(t).parent().addClass('active');
+        $("html, body").stop().animate({
+            scrollTop: $(t.attr("name")).offset().top - 50
+        }, 1500, "easeInOutExpo"), o.preventDefault()
+    }),
+    $(document).on("click", ".navbar-collapse.show", function (o) {
+        $(o.target).is("a") && $(this).collapse("hide")
+    }),
+    $(window).on("scroll", function () {
+        $(this).scrollTop() > 100 ? $(".back_top").fadeIn() : $(".back_top").fadeOut()
+    }),
+    $(".back_top").on("click", function () {
+        return $("html, body").animate({
+            scrollTop: 0
+        }, 1e3), !1
     });
 
 /*----OTHER LINK JS-----*/
@@ -185,26 +194,26 @@ $(document).on("click", ".navbar-collapse.show", function (o) {
     $(".home-slider .item a, .contact_btn a").on("click", function (event) {
         var t = $(this);
         $("html, body").stop().animate({
-            scrollTop: $(t.attr("href")).offset().top - 50
+            scrollTop: $(t.attr("name")).offset().top - 50
         }, 2000, "easeInOutExpo"), event.preventDefault()
     })
 })(jQuery);
 
- // Initate the hero bottom waves
-  if ($('#wave1').length && $('#wave2').length) {
+// Initate the hero bottom waves
+if ($('#wave1').length && $('#wave2').length) {
     wavify(document.querySelector('#wave1'), {
-      height: 40,
-      bones: 4,
-      amplitude: 40,
-      color: '#fff',
-      speed: .15
+        height: 40,
+        bones: 4,
+        amplitude: 40,
+        color: '#fff',
+        speed: .15
     });
 
     wavify(document.querySelector('#wave2'), {
-      height: 20,
-      bones: 3,
-      amplitude: 40,
-      color: 'rgba(255, 255, 255, .1)',
-      speed: .25
+        height: 20,
+        bones: 3,
+        amplitude: 40,
+        color: 'rgba(255, 255, 255, .1)',
+        speed: .25
     });
-  }
+}

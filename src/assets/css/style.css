@@ -708,49 +708,21 @@ button:focus {
     border-color: #0ebdca;
 
 }
-
-
-
 .brand-logo .logo-light {
-
     display: inline-block;
-
 }
-
-
-
 .sticky-header .brand-logo .logo-dark {
-
     display: inline-block;
-
 }
-
-
-
 .sticky-header .brand-logo .logo-light {
-
     display: none;
-
 }
-
-
-
 .brand-logo .logo-dark {
-
     display: none;
-
 }
-
-
-
 .custom-nav .navbar-brand.brand-logo img {
-
-    height: 28px;
-
+    height: 40px;
 }
-
-
-
 .contact_btn .btn-sm {
 
     background-color: #fff;
@@ -2220,7 +2192,7 @@ button:focus {
 
 .footer .foot-logo img {
 
-    height: 32px;
+    height: 45px;
 
 }
 
@@ -2926,7 +2898,7 @@ button:focus {
 
 	.custom-nav .navbar-brand.brand-logo img {
 
-        height: 24px;
+        height: 39px;
 
     }
 
@@ -3068,8 +3040,56 @@ button:focus {
 
     .custom-nav .navbar-brand.brand-logo img {
 
-        height: 20px;
+        height: 35px;
 
     }
 
 }
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    overflow: hidden;
+    background: #fff;
+  }
+  
+  #preloader:before {
+    content: "";
+    position: fixed;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    border: 6px solid #009bad;
+    border-top-color: #bfe0fd;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: animate-preloader 1s linear infinite;
+    animation: animate-preloader 1s linear infinite;
+  }
+  
+  @-webkit-keyframes animate-preloader {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes animate-preloader {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
