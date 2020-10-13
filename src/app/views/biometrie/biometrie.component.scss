@@ -1,0 +1,52 @@
+.card {
+    margin-bottom: 10px;
+    border: none;
+}
+
+.card-header {
+    border: none;
+}
+
+.layout-spacing {
+    padding-bottom: 0px;
+}
+
+.btn {
+    color: #fff;
+    background-color: #009bad;
+    border: 0px solid #009bad;
+    margin-left: 5px;
+    text-transform: none;
+}
+
+.bio-row i {
+    font-size: 52px;
+    text-align: right !important;
+    color: #0097a8;
+}
+
+.biometrie {
+
+    margin-bottom: 5px;
+
+    p {
+        margin-top: 0;
+        margin-bottom: 0rem;
+        color: #0097a8;
+        font-size: 18px;
+        font-weight: 700;
+        text-align: left !important;
+    }
+
+    span {
+        color: #000000;
+        font-weight: bold;
+        text-align: left !important;
+    }
+
+    hr {
+        margin-top: 0;
+        margin-bottom: 0rem;
+        border-top: 2px solid #e1e2e2;
+    }
+}

@@ -1,18 +1,10 @@
-/*
--------------------------------------------------------------------------------------
-* Template Name    : Mediyot - Healthcare, Medical & Hospital Html5 Landing Page    *
-* Author           : Vrishank Softtech                                  	  		*
-* Version          : 1.0.0                                              	  		*
-* File Description : Main JS file of the template	                      	  		*
-*------------------------------------------------------------------------------------
-*/
 $(document).ready(function () {
     "use strict";
 
     // Preloader
     $(window).on('load', function () {
         if ($('#preloader').length) {
-            $('#preloader').delay(100).fadeOut('slow', function () {
+            $('#preloader').delay(10).fadeOut('slow', function () {
                 $(this).remove();
             });
         }
@@ -129,6 +121,8 @@ $(document).ready(function () {
             jQuery('.footer-content').show();
         }
     })(jQuery);
+
+    App.init();
 
 });
 

@@ -1,0 +1,62 @@
+[
+    {
+        "icon": "icofont-brand-microsoft",
+        "title": "Tableau de bord",
+        "route": "/dashboard"
+    },
+    {
+        "icon": "icofont-history",
+        "title": "Historique médical",
+        "route": ""
+    },
+    {
+        "icon": "icofont-reply",
+        "title": "Antécédents",
+        "route": "/medical-history"
+    },
+    {
+        "icon": "icofont-heart-beat",
+        "title": "Biométrie (Mesures)",
+        "route": "/biometrics"
+    },
+    {
+        "icon": "icofont-pills",
+        "title": "Traitements",
+        "route": "/treatments"
+    },
+    {
+        "icon": "icofont-injection-syringe",
+        "title": "Vaccins",
+        "route": "/vaccines"
+    },
+    {
+        "icon": "icofont-patient-file",
+        "title": "Téléconsultation",
+        "route": "/tele-consulting"
+    },
+    {
+        "icon": "icofont-document-folder",
+        "title": "Pièces jointes",
+        "route": "/documents"
+    },
+    {
+        "icon": "icofont-microscope-alt",
+        "title": "Dossier d'analyses",
+        "route": "/analyzes"
+    },
+    {
+        "icon": "icofont-info-circle",
+        "title": "Infos personnelle",
+        "route": "/profile"
+    },
+    {
+        "icon": "icofont-contacts",
+        "title": "Contacts",
+        "route": "/contacts"
+    },
+    {
+        "icon": "icofont-dollar",
+        "title": "Historique financier",
+        "route": "/finances"
+    }
+]

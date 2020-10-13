@@ -1,0 +1,32 @@
+<div class="sidebar-wrapper sidebar-theme">
+        
+    <nav id="compactSidebar">
+
+        <div class="theme-logo">
+            <a href="index.html">
+                <img src="assets/images/logo.png" class="navbar-logo" alt="logo">
+            </a>
+        </div>
+
+        <ul class="menu-categories">
+            <li *ngFor="let item of sidebars" [class]="item.route == router.url ? 'menu active' : 'menu'">
+                <a [routerLink]="[item.route]" [class]="item.route == router.url ? 'menu-toggle active' : 'menu-toggle'">
+                    <div class="base-menu">
+                        <div class="base-icons">
+                            <i [class]="item.icon"></i>
+                        </div>
+                    </div>
+                </a>
+                <div class="tooltip"><span>{{item.title}}</span></div>
+            </li>
+        </ul>
+
+        <div class="external-links">
+            <a href="../../documentation/index.html" target="_blank">
+                <i class="icofont-book"></i>
+                <div class="tooltip"><span>Documentation</span></div>
+            </a>
+        </div>
+    </nav>
+
+</div>

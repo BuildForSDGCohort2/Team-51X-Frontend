@@ -1,0 +1,64 @@
+@import './../../../../../assets/css/colors.scss';
+
+.step-content-label {
+    margin-bottom: 16px;
+}
+
+.step-complete-btn {
+    padding: 10px 20px 10px 10px;
+    border-radius: 5px;
+    border: none !important;
+    background: #c9e6ff;
+    display: flex;
+    align-items: center;
+}
+
+.completed-step-check {
+    margin-right: 12px;
+    color: $blue !important;
+}
+
+.form-continue-btn {
+    background: #3e709b;
+    width: 100%;
+    margin-top: 32px;
+    margin-right: 0px;
+    margin-bottom: 32px;
+    margin-left: 0px;
+}
+
+.form-control-lg {
+    font-size: 15px;
+    height: 45px;
+}
+
+.custom-select-lg {
+    font-size: 15px;
+    height: 45px;
+    padding-left: 2.5rem;
+}
+
+.form-group .form-control {
+    padding-left: 2.375rem;
+    border-radius: 5px;
+}
+
+.form-group .form-control-icon {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 3.375rem;
+    height: 2.375rem;
+    line-height: 2.9rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.custom-select {
+    border-radius: 5px;
+}
+
+.form-group label, label {
+    color: #000000;
+}

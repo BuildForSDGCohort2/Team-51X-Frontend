@@ -1,0 +1,164 @@
+<div class="step-template">
+    <h3>{{ 'SignupTitle' | translate}}</h3>
+    <div class="step-content-label">
+        <p class="para-sec">{{ 'SignupText1' | translate}}</p>
+        <p class="para-sec"><strong>{{ 'SignupText2' | translate}}</strong> {{ 'SignupText3' | translate}}</p>
+        <p class="para-sec">{{ 'SignupText4' | translate}}</p>
+    </div>
+
+    <div *ngIf="step.stepIndex === 1">
+        <p class="para-sec">{{ 'SignupStep1Title' | translate}}</p>
+        <form [formGroup]="stepOneForm" (ngSubmit)="verifyPhoneNumber()">
+            <div class="wrap-input100 m-b-10">
+                <ngx-intl-tel-input [cssClass]="'input100'"
+                    [preferredCountries]="[CountryISO.CongoDRCJamhuriYaKidemokrasiaYaKongo, CountryISO.Nigeria]"
+                    [enableAutoCountrySelect]="false" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                    [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.CongoDRCJamhuriYaKidemokrasiaYaKongo"
+                    [maxLength]="10" [tooltipField]="TooltipLabel.Name" [phoneValidation]="true" name="phone"
+                    [separateDialCode]="true" formControlName="phoneNumber"
+                    [ngClass]="{ 'is-invalid': fStepOne.phoneNumber.errors }">
+                </ngx-intl-tel-input>
+                <span class="focus-input100"></span>
+            </div>
+
+            <button [disabled]="!currentStep?.isComplete || isLoading" class="form-continue-btn common-btn">
+                <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
+                {{ 'SignupStep1Btn' | translate }}
+            </button>
+        </form>
+    </div>
+    <div *ngIf="step.stepIndex === 2">
+        <p class="para-sec">{{ 'SignupStep2Title1' | translate}} {{ phone }} {{ 'SignupStep2Title2' | translate}}</p>
+        <form [formGroup]="stepTwoForm" (ngSubmit)="verifySmsCode()">
+            <div class="wrap-input100 m-b-10">
+                <input formControlName="confirmCode" style="text-align: center;" class="input100" type="number" name="confirmCode"
+                    placeholder="Code de valisation">
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <i class="icofont-unlocked"></i>
+                </span>
+            </div>
+            <button [disabled]="!currentStep?.isComplete || isLoading" class="form-continue-btn common-btn">
+                <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
+                {{ 'SignupStep2Btn' | translate }}
+            </button>
+        </form>
+    </div>
+    <div *ngIf="step.stepIndex === 3">
+        <form [formGroup]="stepThreeForm" (ngSubmit)="onSubmit()">
+            <label class="form-label">{{ 'SignupStep3Identite' | translate }}</label>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <span class="fa fa-mars form-control-icon"></span>
+                        <select formControlName="civilite" [ngClass]="{ 'is-invalid': submitted && fStepThree.civilite.errors }" class="custom-select custom-select-lg">
+                            <option value="1">{{'SignupStep3Civilite1' | translate}}</option>
+                            <option value="2">{{ 'SignupStep3Civilite2' | translate }}</option>
+                            <option value="3">{{ 'SIgnupStep3Civilite3' | translate }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="icofont-ui-user form-control-icon"></span>
+                        <input formControlName="prenom" [ngClass]="{ 'is-invalid': submitted && fStepThree.prenom.errors }" type="text" class="form-control form-control-lg" placeholder="{{'Firtname' | translate}}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="icofont-ui-user form-control-icon"></span>
+                        <input formControlName="nom" [ngClass]="{ 'is-invalid': submitted && fStepThree.nom.errors }" type="text" class="form-control form-control-lg" placeholder="{{'Name' | translate}}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="icofont-ui-calendar form-control-icon"></span>
+                        <input formControlName="dateNaissance" [ngClass]="{ 'is-invalid': submitted && fStepThree.dateNaissance.errors }" type="text" class="form-control form-control-lg" placeholder="{{'Birthday' | translate}}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="icofont-location-pin form-control-icon"></span>
+                        <input formControlName="lieuNaissance" [ngClass]="{ 'is-invalid': submitted && fStepThree.lieuNaissance.errors }" type="text" class="form-control form-control-lg" placeholder="{{'LieuNaissance' | translate}}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="icofont-users-alt-4 form-control-icon"></span>
+                        <select formControlName="situationFamiliale" [ngClass]="{ 'is-invalid': submitted && fStepThree.situationFamiliale.errors }" class="custom-select custom-select-lg">
+                            <option value="1">{{'Single' | translate}}</option>
+                            <option value="2">{{'Married' | translate}}</option>
+                            <option value="3">{{'Divorced' | translate}}</option>
+                            <option value="4">{{'Widow' | translate}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="icofont-bag-alt form-control-icon"></span>
+                        <input formControlName="profession" type="text" class="form-control form-control-lg" placeholder="{{'Profession' | translate}}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="icofont-card form-control-icon"></span>
+                        <input formControlName="securiteSocial" type="text" class="form-control form-control-lg" placeholder="{{'SecuriteSocial' | translate}}">
+                    </div>
+                </div>
+            </div>
+            <label class="form-label">{{'SecurityInfos' | translate}}</label>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <span class="icofont-ui-email form-control-icon"></span>
+                        <input formControlName="email" [ngClass]="{ 'is-invalid': submitted && fStepThree.email.errors }" type="email" class="form-control form-control-lg" placeholder="{{'Email' | translate}}">
+                        <div *ngIf="submitted && fStepThree.email.errors" class="invalid-feedback">
+                            <div *ngIf="fStepThree.email.errors.email">L'adresse e-mail doit être valide</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="icofont-user-alt-4 form-control-icon"></span>
+                        <input formControlName="username" disabled type="text" class="form-control form-control-lg" placeholder="{{'Username' | translate}}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="icofont-key form-control-icon"></span>
+                        <input formControlName="password" [ngClass]="{ 'is-invalid': submitted && fStepThree.password.errors }" type="password" class="form-control form-control-lg" placeholder="{{'Password' | translate}}">
+                        <div *ngIf="submitted && fStepThree.password.errors" class="invalid-feedback">
+                            <div *ngIf="fStepThree.password.errors.minlength">Le mot de passe doit comporter au moins 6 caractères</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="icofont-key form-control-icon"></span>
+                        <input formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && fStepThree.confirmPassword.errors }" type="password" class="form-control form-control-lg" placeholder="{{'ConfirmPassword' | translate}}">
+                        <div *ngIf="submitted && fStepThree.confirmPassword.errors" class="invalid-feedback">
+                            <div *ngIf="fStepThree.confirmPassword.errors.mustMatch">Les deux mots de passe doivent correspondre</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <label class="form-label">{{'Adresse' | translate}}</label>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <span class="icofont-location-pin form-control-icon"></span>
+                        <input formControlName="adress1" [ngClass]="{ 'is-invalid': submitted && fStepThree.adress1.errors }" type="text" class="form-control form-control-lg" placeholder="{{'AdresseLigne1' | translate}}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="icofont-location-pin form-control-icon"></span>
+                        <input formControlName="adress2" [ngClass]="{ 'is-invalid': submitted && fStepThree.adress2.errors }" type="text" class="form-control form-control-lg" placeholder="{{'AdresseLigne2' | translate}}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="icofont-location-pin form-control-icon"></span>
+                        <input formControlName="city" [ngClass]="{ 'is-invalid': submitted && fStepThree.city.errors }" type="text" class="form-control form-control-lg" placeholder="{{'Ville' | translate}}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="icofont-location-pin form-control-icon"></span>
+                        <input formControlName="state" [ngClass]="{ 'is-invalid': submitted && fStepThree.state.errors }" type="text" class="form-control form-control-lg" placeholder="{{'Province' | translate}}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <span class="icofont-location-pin form-control-icon"></span>
+                        <input formControlName="zip" [ngClass]="{ 'is-invalid': submitted && fStepThree.zip.errors }" type="text" class="form-control form-control-lg" placeholder="Zip / {{'CodePostal' | translate}}">
+                    </div> 
+                    <div class="form-group col-md-6">
+                        <span class="icofont-location-pin form-control-icon"></span>
+                        <select formControlName="country" [ngClass]="{ 'is-invalid': submitted && fStepThree.country.errors }" class="custom-select custom-select-lg">
+                            <option *ngFor="let country of countries" [ngValue]="country.value">{{country.text}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button [disabled]="!currentStep?.isComplete || isLoading" class="form-continue-btn common-btn">
+                <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
+                {{ 'SignupStep3Btn' | translate }}
+            </button>
+        </form>
+    </div>
+</div>

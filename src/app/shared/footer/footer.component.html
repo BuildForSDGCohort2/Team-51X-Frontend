@@ -1,4 +1,4 @@
-<footer class="footer bg-gradient overflow-hidden pb-4" id="footer">
+<footer *ngIf="route.url == '/home'" class="footer bg-gradient overflow-hidden pb-4" id="footer">
     <div class="container footer-top mb-4">
         <div class="row">
             <div class="col-md-12">
@@ -80,6 +80,5 @@
     </div>
 </footer>
 
-
-<a href="#" class="back_top"> <i class="icofont-rounded-up"></i></a>
+<a *ngIf="route.url == '/home'" href="#" class="back_top"> <i class="icofont-rounded-up"></i></a>
 <div id="preloader"></div>

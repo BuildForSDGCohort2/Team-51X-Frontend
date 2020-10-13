@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  users;
+  loading = true;
+  error: any;
 
   reviewSlideOptions = {
     margin: 16,
@@ -46,26 +52,28 @@ export class HomeComponent implements OnInit {
     autoplay: true,
     responsiveClass: true,
     responsive: {
-        0: {
-            items: 2
-        },
-        600: {
-            items: 3
-        },
-        1000: {
-            items: 3
-        }
+      0: {
+        items: 2
+      },
+      600: {
+        items: 3
+      },
+      1000: {
+        items: 3
+      }
     }
-};
+  };
 
   constructor(
+    private apollo: Apollo
   ) { }
 
   ngOnInit(): void {
+    
   }
 
   scrollToElement(element): void {
-    element.scrollIntoView({behavior: 'smooth', inline: 'nearest'});
+    element.scrollIntoView({ behavior: 'smooth', inline: 'nearest' });
   }
 
 }

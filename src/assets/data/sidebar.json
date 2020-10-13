@@ -1,0 +1,62 @@
+[
+    {
+        "icon": "icofont-brand-microsoft",
+        "title": "Tableau de bord",
+        "route": "/dashboard"
+    },
+    {
+        "icon": "icofont-ui-calendar",
+        "title": "Agenda",
+        "route": "/agenda"
+    },
+    {
+        "icon": "icofont-apple-watch",
+        "title": "Bracélet",
+        "route": "/wristbands-reader"
+    },
+    {
+        "icon": "icofont-users-social",
+        "title": "Liste des patients",
+        "route": "/patients"
+    },
+    {
+        "icon": "icofont-folder",
+        "title": "Dossier du patient",
+        "route": "/medical-file"
+    },
+    {
+        "icon": "icofont-test-bottle",
+        "title": "Pharmacie",
+        "route": "/pharmacies"
+    },
+    {
+        "icon": "icofont-envelope",
+        "title": "Courrier, Mail, SMS",
+        "route": "/messenger"
+    },
+    {
+        "icon": "icofont-mathematical-alt-1",
+        "title": "Comptabilité",
+        "route": "/accounting"
+    },
+    {
+        "icon": "icofont-chart-bar-graph",
+        "title": "Statistiques",
+        "route": "/statistics"
+    },
+    {
+        "icon": "icofont-microscope-alt",
+        "title": "Réception des analyses",
+        "route": "/analyzes"
+    },
+    {
+        "icon": "icofont-stethoscope-alt",
+        "title": "Cas cliniques",
+        "route": "/clinical-case"
+    },
+    {
+        "icon": "icofont-ui-settings",
+        "title": "Paramètres",
+        "route": "/settings"
+    }
+]

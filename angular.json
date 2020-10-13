@@ -28,24 +28,36 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/fonts/font-awesome/font-awesome.min.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.scss",
-              "src/assets/css/bootstrap.min.css",
+              "src/assets/libs/bootstrap/bootstrap.min.css",
               "src/assets/fonts/icofont/icofont.min.css",
-              "src/assets/css/owl.carousel.css",
+              "src/assets/libs/owl.carousel/owl.carousel.css",
+              "node_modules/intl-tel-input/build/css/intlTelInput.css",
+              
               "src/assets/css/animate.css",
-              "src/assets/css/style.css"
+              "src/assets/css/style.css",
+              "src/assets/css/plugins.css",
+              "src/assets/libs/apex/apexcharts.css",
+              "src/assets/css/dashboard.css",
+              "src/assets/css/forms/theme-checkbox-radio.css",
+              "src/assets/css/contacts.css"
             ],
             "scripts": [
-              "src/assets/js/jquery.min.js",
-              "src/assets/js/popper.min.js",
-              "src/assets/js/bootstrap.min.js",
-              "src/assets/js/jquery.easing.min.js",
-              "src/assets/js/owl.carousel.min.js",
+              "src/assets/libs/jquery/jquery.min.js",
+              "src/assets/libs/popper.min.js",
+              "src/assets/libs/bootstrap/bootstrap.min.js",
+              "src/assets/libs/jquery.easing.min.js",
+              "src/assets/libs/owl.carousel/owl.carousel.min.js",
               "node_modules/owl.carousel/dist/owl.carousel.min.js",
-              "src/assets/js/parallax.js",
-              "src/assets/js/wow.min.js",
-              "src/assets/js/TweenMax.min.js",
-              "src/assets/js/wavify.js",
+              "src/assets/libs/parallax.js",
+              "src/assets/libs/wow.min.js",
+              "src/assets/libs/TweenMax.min.js",
+              "src/assets/libs/wavify.js",
+              "src/assets/libs/perfect-scrollbar/perfect-scrollbar.min.js",
+              "src/assets/js/app.js",
               "src/assets/js/main.js"
             ]
           },
@@ -68,12 +80,12 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
+                  "maximumWarning": "3mb",
                   "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
+                  "maximumWarning": "8kb",
                   "maximumError": "10kb"
                 }
               ]
@@ -109,6 +121,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -140,6 +154,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "afya"
 }

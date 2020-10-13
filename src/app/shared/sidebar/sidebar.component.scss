@@ -1,0 +1,47 @@
+a .icone {
+    display: block;
+    width: 65px;
+    height: 65px;
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,.4);
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 2.1875rem;
+    position: relative;
+    margin: 0 auto;
+}
+
+a .active {
+    display: block;
+    width: 65px;
+    height: 65px;
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,.4);
+    background-color: rgb(255, 255, 255);;
+    text-align: center;
+    color: rgb(0, 156, 173);
+    font-size: 2.1875rem;
+    position: relative;
+    margin: 0 auto;
+}
+
+a span i{
+    position: absolute;
+    top: 13px;
+    left: 14px;
+    line-height: 1;
+}
+a .text {
+    display: block;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 300;
+    font-size: .8125rem;
+    padding: 10px 0 30px;
+    color: #FFF;
+    text-align: center;
+    -webkit-transition: color 150ms;
+    -moz-transition: color 150ms;
+    -ms-transition: color 150ms;
+    -o-transition: color 150ms;
+    transition: color 150ms;
+}

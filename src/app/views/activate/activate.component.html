@@ -1,0 +1,178 @@
+<div class="container">
+    <div class="text-center">
+        <div *ngIf="activated" class="alert alert-warning alert-dismissible fade show" role="alert">
+            <h5><strong>Welcome to AfiaMed Dear Didierson !</strong></h5> <br> Your account has been successfully
+            activated. <br>Please complete your registration
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div *ngIf="!activated" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <h4><strong>Activation error !</strong></h4> <br> An error occurred while verifying your email address, the
+            activation of your account failed. It may be that the validation date of the link you are using has expired,
+            or check that you are connected to the internet and try again.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-150 p-b-30">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="customForm">
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <h5 class="col-sm-10">{{ 'SignupStep3Identite' | translate }}</h5>
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" style="text-align: right" for="B3">Civility<span class="text-danger">*</span></label>
+                    <div class="col-sm-10">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input formControlName="roleId" [ngClass]="{ 'is-invalid': submitted && f.roleId.errors }" value="1" type="radio" checked id="customRadioInline1" name="roleId" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline1">{{'SignupStep3Civilite1' | translate}}</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input formControlName="roleId" [ngClass]="{ 'is-invalid': submitted && f.roleId.errors }" value="2" type="radio" id="customRadioInline2" name="roleId" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2">{{ 'SignupStep3Civilite2' | translate }}</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input formControlName="roleId" [ngClass]="{ 'is-invalid': submitted && f.roleId.errors }" value="3" type="radio" id="customRadioInline3" name="roleId" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline3">{{ 'SIgnupStep3Civilite3' | translate }}</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" style="text-align: right" for="B3">First name<span class="text-danger">*</span></label>
+                    <div class="col-sm-10">
+                        <span class="icofont-ui-user form-control-icon"></span>
+                        <input type="text" formControlName="prenom" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.prenom.errors }" placeholder="" />
+                        <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" style="text-align: right" for="B3">Name<span class="text-danger">*</span></label>
+                    <div class="col-sm-10">
+                        <span class="icofont-ui-user form-control-icon"></span>
+                        <input type="text" formControlName="nom" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }" placeholder="" />
+                        <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" style="text-align: right" for="B3">{{'Birthday' | translate}}<span class="text-danger">*</span></label>
+                    <div class="col-sm-10">
+                        <span class="icofont-ui-calendar form-control-icon"></span>
+                        <input formControlName="dateNaissance" [ngClass]="{ 'is-invalid': submitted && f.dateNaissance.errors }" type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" style="text-align: right" for="B3">{{'LieuNaissance' | translate}}<span class="text-danger">*</span></label>
+                    <div class="col-sm-10">
+                        <span class="icofont-location-pin form-control-icon"></span>
+                        <input formControlName="lieuNaissance" [ngClass]="{ 'is-invalid': submitted && f.lieuNaissance.errors }" type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" style="text-align: right" for="B3">Family status<span class="text-danger">*</span></label>
+                    <div class="col-sm-10">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input formControlName="situationFamiliale" [ngClass]="{ 'is-invalid': submitted && f.situationFamiliale.errors }" value="1" type="radio" checked id="familySatatus1" name="situationFamiliale" class="custom-control-input">
+                            <label class="custom-control-label" for="familySatatus1">{{'Single' | translate}}</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input formControlName="situationFamiliale" [ngClass]="{ 'is-invalid': submitted && f.situationFamiliale.errors }" value="2" type="radio" id="familySatatus2" name="situationFamiliale" class="custom-control-input">
+                            <label class="custom-control-label" for="familySatatus2">{{ 'Married' | translate }}</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input formControlName="situationFamiliale" [ngClass]="{ 'is-invalid': submitted && f.situationFamiliale.errors }" value="3" type="radio" id="familySatatus3" name="situationFamiliale" class="custom-control-input">
+                            <label class="custom-control-label" for="familySatatus3">{{ 'Divorced' | translate }}</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input formControlName="situationFamiliale" [ngClass]="{ 'is-invalid': submitted && f.situationFamiliale.errors }" value="3" type="radio" id="familySatatus4" name="situationFamiliale" class="custom-control-input">
+                            <label class="custom-control-label" for="familySatatus4">{{ 'Widow' | translate }}</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" style="text-align: right" for="B3">{{'Profession' | translate }}</label>
+                    <div class="col-sm-10">
+                        <span class="icofont-bag-alt form-control-icon"></span>
+                        <input formControlName="profession" type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" style="text-align: right" for="B3">{{'SecuriteSocial' | translate }}</label>
+                    <div class="col-sm-10">
+                        <span class="icofont-card form-control-icon"></span>
+                        <input formControlName="securiteSocial" type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <h5 class="col-sm-10">{{ 'Adresse' | translate }}</h5>
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" style="text-align: right" for="B3">{{'AdresseLigne1' | translate }}<span class="text-danger">*</span></label>
+                    <div class="col-sm-10">
+                        <span class="icofont-location-pin form-control-icon"></span>
+                        <input formControlName="adress1" [ngClass]="{ 'is-invalid': submitted && f.adress1.errors }" type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" style="text-align: right" for="B3">{{'AdresseLigne2' | translate }}</label>
+                    <div class="col-sm-10">
+                        <span class="icofont-location-pin form-control-icon"></span>
+                        <input formControlName="adress2" [ngClass]="{ 'is-invalid': submitted && f.adress2.errors }" type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" style="text-align: right" for="B3">{{'Ville' | translate }}<span class="text-danger">*</span></label>
+                    <div class="col-sm-10">
+                        <span class="icofont-location-pin form-control-icon"></span>
+                        <input formControlName="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" style="text-align: right" for="B3">{{'Province' | translate }}<span class="text-danger">*</span></label>
+                    <div class="col-sm-10">
+                        <span class="icofont-location-pin form-control-icon"></span>
+                        <input formControlName="state" [ngClass]="{ 'is-invalid': submitted && f.state.errors }" type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" style="text-align: right" for="B3">Zip / {{'CodePostal' | translate}}</label>
+                    <div class="col-sm-10">
+                        <span class="icofont-location-pin form-control-icon"></span>
+                        <input formControlName="zip" [ngClass]="{ 'is-invalid': submitted && f.zip.errors }" type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" style="text-align: right" for="B3">Country<span class="text-danger">*</span></label>
+                    <div class="col-sm-10">
+                        <span class="icofont-location-pin form-control-icon"></span>
+                        <select formControlName="country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" class="custom-select">
+                            <option *ngFor="let country of countries" [ngValue]="country.value">{{country.text}} </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="container-login100-form-btn p-t-10">
+                    <button [disabled]="isLoading" class="login100-form-btn">
+                        <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Finish
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

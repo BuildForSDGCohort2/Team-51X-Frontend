@@ -1,0 +1,29 @@
+
+<div class="container form-page-container">
+    <div class="step-page-container">
+        <img src="assets/images/logo.svg" width="120px" alt="">
+        <h3>{{'HomeTitle' | translate }}</h3>
+    </div>
+    <app-wizard></app-wizard>
+    <div class="step-page-container">
+        <div class="form-step">
+            <ng-container [ngSwitch]="currentStep?.stepIndex">
+                <ng-container *ngSwitchCase="'1'">
+                    <app-template [step]="currentStep"></app-template>
+                </ng-container>
+                <ng-container *ngSwitchCase="'2'">
+                    <app-template [step]="currentStep"></app-template>
+                </ng-container>
+                <ng-container *ngSwitchCase="'3'">
+                    <app-template [step]="currentStep"></app-template>
+                </ng-container>
+                <ng-container *ngSwitchCase="'4'">
+                    <app-template [step]="currentStep"></app-template>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+    <!---button (click)="onNextStep()" [disabled]="!currentStep?.isComplete" class="form-continue-btn common-btn">
+        {{ showButtonLabel() }}
+    </button-->
+</div>
